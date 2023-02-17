@@ -2,6 +2,7 @@ import SearchBar from "../SearchBar/SearchBar.jsx";
 import { NavLink } from "react-router-dom";
 import logo from "../../assets/images/logo.png";
 import styled from "styled-components";
+import { Button } from "../SearchBar/SearchBar.jsx";
 
 const Bar = styled.div`
   height: 7.2em;
@@ -11,16 +12,9 @@ const Bar = styled.div`
   padding: 15px 30px;
 `;
 
-const Btns = styled.button`
-  background-color: #c0ffc0;
-  color: var(--theme-color);
-  border: 0px;
-  border-radius: 5px;
-  font-weight: bold;
-  font-size: 15px;
-  padding: 10px;
-  margin: 25px 0px 25px 0px;
-  margin-right: 15px;
+const Btns = styled(Button)`
+  margin: 25px 0px;
+  margin-right: 64px;
   cursor: pointer;
 `;
 

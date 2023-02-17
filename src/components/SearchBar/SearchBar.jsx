@@ -8,7 +8,7 @@ const Inpt = styled.input`
   border-radius: 5px;
 `;
 
-const Button = styled.button`
+export const Button = styled.button`
   background-color: #c0ffc0;
   color: var(--theme-color);
   border: 0px;
@@ -16,7 +16,7 @@ const Button = styled.button`
   font-weight: bold;
   font-size: 15px;
   padding: 10px;
-  margin: 25px 60px 25px 0px;
+  margin: 25px 15px 25px 0px;
   cursor: pointer;
 `;
 
