@@ -18,6 +18,16 @@ const Selectors = styled.div`
   top: 176px;
 `;
 
+const Select = styled.select`
+  position: relative;
+  top: -12px;
+  font-size: 17px;
+  color: var(--theme-color);
+  background-color: #c0ffc0;
+  border-radius: 5px;
+  padding: 1px;
+`;
+
 export function Favorites({ myFavorites }) {
   const dispatch = useDispatch();
   const handleDispatch = (e) => {
@@ -33,16 +43,16 @@ export function Favorites({ myFavorites }) {
   return (
     <CardContainer>
       <Selectors>
-        <select name="order" onClick={handleDispatch}>
+        <Select name="order" onClick={handleDispatch}>
           <option value="Ascendant">Low to High</option>
           <option value="Descendant">High to Low</option>
-        </select>
-        <select name="filter" onClick={handleDispatch}>
+        </Select>
+        <Select name="filter" onClick={handleDispatch}>
           <option value="Genderless">Genderless</option>
           <option value="Female">Female</option>
           <option value="Male">Male</option>
           <option value="unknown">unknown</option>
-        </select>
+        </Select>
       </Selectors>
       {myFavorites?.map((fav) => (
         <Card

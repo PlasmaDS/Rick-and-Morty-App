@@ -3,7 +3,6 @@ import { Link } from "react-router-dom";
 import { addFavorite, deleteFavorite } from "../../redux/actions/actions.js";
 import { connect } from "react-redux";
 import { useState, useEffect } from "react";
-import back from "../../assets/images/backface.jpg";
 
 const ListItem = styled.li`
   margin-bottom: 3em;
