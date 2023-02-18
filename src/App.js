@@ -15,10 +15,13 @@ import { useDispatch } from "react-redux";
 
 export default function App() {
   const location = useLocation();
-  const [access, setAccess] = useState(false);
   const navigate = useNavigate();
   const [characters, setCharacters] = useState([]);
   const dispatch = useDispatch();
+  const access = false;
+
+  // Save access in localStorage so that you don't close the session when you reload the page and in this way we can see the 404 error page
+  localStorage.setItem(access, false);
 
   function login(userData) {
     var i = undefined;
@@ -32,7 +35,7 @@ export default function App() {
       userData.username === accounts[i].username &&
       userData.password === accounts[i].password
     ) {
-      setAccess(true);
+      localStorage.setItem(access, true);
       navigate("/home");
     }
   }
@@ -52,7 +55,7 @@ export default function App() {
   // Signup end
 
   useEffect(() => {
-    !access && navigate("/");
+    !localStorage.getItem(access) && navigate("/");
     // eslint-disable-next-line
   }, [access]);
 
@@ -104,7 +107,11 @@ export default function App() {
           borderRadius: "30px",
           zIndex: "9999",
         }}>
-        {location.pathname !== "/" && (
+        {/* Change in the logic to positive so that it only render in the desired pages and not in the login or urls not accepted (404) */}
+        {(location.pathname === "/home" ||
+          location.pathname === "/about" ||
+          location.pathname === "/favorites" ||
+          location.pathname === "/detail/:detailId") && (
           <NavBar onSearch={onSearch} random={random} />
         )}
       </div>
