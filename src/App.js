@@ -21,7 +21,7 @@ export default function App() {
   const access = false;
 
   // Save access in localStorage so that you don't close the session when you reload the page and in this way we can see the 404 error page
-  localStorage.setItem(access, false);
+  window.localStorage.setItem(access, false);
 
   function login(userData) {
     var i = undefined;
@@ -35,7 +35,7 @@ export default function App() {
       userData.username === accounts[i].username &&
       userData.password === accounts[i].password
     ) {
-      localStorage.setItem(access, true);
+      window.localStorage.setItem(access, true);
       navigate("/home");
     }
   }
@@ -55,7 +55,7 @@ export default function App() {
   // Signup end
 
   useEffect(() => {
-    !localStorage.getItem(access) && navigate("/");
+    !window.localStorage.getItem(access) && navigate("/");
     // eslint-disable-next-line
   }, [access]);
 

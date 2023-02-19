@@ -46,6 +46,9 @@ const Link = styled(NavLink)`
 `;
 
 export default function NavBar({ onSearch, random }) {
+  function clearAccess() {
+    window.localStorage.clear();
+  }
   return (
     <Bar>
       <NavLink to="/home">
@@ -57,7 +60,9 @@ export default function NavBar({ onSearch, random }) {
         <Link to="/favorites">Favorites</Link>
         <Link to="/about">About</Link>
         {/* logout without function */}
-        <Link to="/">Logout</Link>
+        <Link to="/" onClick={clearAccess()}>
+          Logout
+        </Link>
       </Lnks>
     </Bar>
   );
